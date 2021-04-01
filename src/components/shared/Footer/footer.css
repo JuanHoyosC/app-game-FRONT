@@ -40,8 +40,8 @@
 }
 
 .footer .nav-link:first-child {
-    padding-left: var(--bs-gutter-x,.75rem) !important;
+    padding: 10px var(--bs-gutter-x,.75rem) !important;
 }
 .fotter .nav-link:last-child {
-    padding-right: var(--bs-gutter-x,.75rem) !important;
+    padding:10px var(--bs-gutter-x,.75rem) !important;
 }

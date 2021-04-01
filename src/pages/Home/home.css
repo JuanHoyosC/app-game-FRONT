@@ -10,5 +10,5 @@
 
 .home {
     max-height: calc(100vh - 148px);
-    overflow-y: hidden;
+    overflow-y: auto;
 }

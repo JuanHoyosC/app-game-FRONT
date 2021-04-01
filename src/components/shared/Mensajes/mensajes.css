@@ -1,0 +1,12 @@
+.mensaje {
+    z-index: 5;
+}
+
+.mensaje .toast {
+    background-color: var(--bg-color);
+}
+
+.mensaje .toast-header {
+    background-color: rgb(0,0,0, .03);
+    border-bottom: 1px solid rgba(0,0,0,.125)
+}

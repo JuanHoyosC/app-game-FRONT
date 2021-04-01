@@ -15,12 +15,16 @@ import { Tienda } from './Tienda/Tienda';
 import { Todo } from './Todo/Todo';
 import { Footer } from '../../components/shared/Footer/Footer';
 import { Añadir } from './Añadir/Añadir';
+import { Mensajes } from '../../components/shared/Mensajes/Mensajes';
+import { Perfil } from '../../components/Perfil/Perfil';
 
 export const Home = () => {
+
+
     return (
         <div className="bg-home">
             <BrowserRouter>
-                <div>
+                <div class="">
                     <NavBar />
                     <div className="container-fluid mt-4 home">
                         <Switch>
@@ -32,6 +36,8 @@ export const Home = () => {
                         </Switch>
                     </div>
                 </div>
+                
+                <Mensajes />
                 <Footer />
             </BrowserRouter>
         </div>

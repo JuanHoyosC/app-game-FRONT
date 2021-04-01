@@ -2,11 +2,17 @@
     --color-primario:  #363A3F;
     --color-secundario: rgb(41, 126, 119);
     --bg-nav-gradient: rgb(82, 92, 180);
+    --animate-duration: 1s;
 }
 
 
 *, *::after, *::before {
     box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+h5, .lista {
+    overflow-y: hidden;
 }
 
 button, input {

@@ -24,7 +24,7 @@ export const NavBar = () => {
                     </ul>
                 </div>
                 <div className="icon-navbar text-white justify-self-end">
-                    <i class="fas fa-bars" data-bs-toggle="offcanvas" data-bs-target="#menuLateral" aria-controls="offcanvasRight"></i>
+                    <i className="fas fa-bars" data-bs-toggle="offcanvas" data-bs-target="#menuLateral" aria-controls="offcanvasRight"></i>
                 </div>
             </div>
             <MenuLateral />

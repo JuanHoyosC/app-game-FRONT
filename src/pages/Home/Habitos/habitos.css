@@ -1,0 +1,26 @@
+.habitos  {
+    width: 700px !important;
+    margin: auto;
+    box-shadow: 1px 1px 10px 0 rgb(0,0,0,0.1);
+}
+
+.habitos .accordion-item {
+    margin-bottom: 10px !important;
+    border: none !important;
+    background: transparent !important;
+}
+
+
+@media screen and (max-width: 700px) and (min-width: 500px){
+    .habitos {
+        width: 100% !important;
+    }
+
+}
+
+
+@media screen and (max-width: 500px) {
+    .habitos {
+        width: 100% !important;
+    }
+}

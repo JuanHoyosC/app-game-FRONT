@@ -1,0 +1,58 @@
+:root {
+    --bg-color: #4a4e52;
+}
+
+
+.habito .accordion-header {
+    flex-grow: 1;
+    background-color: var(--bg-color) !important;
+}
+
+.habito .accordion-item:last-of-type .accordion-button.collapsed, .habito .accordion-item:last-of-type .accordion-button.collapsed {
+    border-radius: 0 !important;
+}
+
+.habito .btn {
+    width: 50px;
+    border-radius: 0;
+    border: none;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+
+.habito .accordion-button:not(.collapsed) {
+    color: #fff;
+}
+.habito .accordion-item {
+    margin-bottom: 10px !important;
+    border: none !important;
+    background: transparent !important;
+}
+
+.habito .accordion-button {
+    display: block;
+    color: #fff;
+    text-align: center;
+    background-color: var(--bg-color) !important;
+}
+
+.habito .accordion-button:not(.collapsed) {
+    background-color: var(--bg-color) !important;
+    box-shadow: none !important;
+}
+
+.habito .accordion-button:focus  {
+    color: #fff !important;
+    background-color: var(--bg-color) !important;
+    box-shadow: none !important;
+}
+
+.habito .accordion-button::after {
+    display: none !important;
+}
+
+.habito .accordion-body {
+    background-color: var(--bg-color);
+    color: #fff;
+}

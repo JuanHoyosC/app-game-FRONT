@@ -1,0 +1,9 @@
+.menuLateral {
+    background-color: var(--color-primario);
+    border-left: none;
+}
+
+.menuLateral i {
+    font-size: 20px;
+    cursor: pointer;
+}

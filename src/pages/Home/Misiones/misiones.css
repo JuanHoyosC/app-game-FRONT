@@ -1,0 +1,10 @@
+.misiones {
+    padding: 0 4px;
+}
+
+
+.card-body {
+    max-width: 500px !important;
+    overflow: auto !important;
+    padding: 0;
+}

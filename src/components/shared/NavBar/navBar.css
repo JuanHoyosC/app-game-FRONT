@@ -1,0 +1,41 @@
+.nav-game.navbar {
+    background: var(--color-primario);;
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.13) !important;
+}
+
+.nav-game .navbar-brand {
+    color: rgb(255, 255, 255) !important;
+}
+
+.nav-game .nav-link {
+    margin-right: 16px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 0 5px;
+}
+
+.nav-game .active {
+    font-weight: bold;
+    color: var(--color-secundario) !important;
+    border-bottom: 2px solid var(--color-secundario);
+}
+
+.icon-navbar {
+    display: none;
+}
+
+@media screen and (max-width: 600px){ 
+    .nav-game .navbar-nav{
+        display: none !important;
+    }
+
+    .nav-game .container {
+        justify-content: space-between !important;
+    }
+
+    .icon-navbar {
+        display: block;
+        font-size: 20px;
+        cursor: pointer;
+    }
+}

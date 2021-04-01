@@ -1,0 +1,19 @@
+.item-body img{
+    width: 50px;
+    height: 50px;
+}
+
+
+.item-body {
+    padding: 16px 8px;
+}
+
+.item-tienda .card{
+    cursor: pointer;
+    background-color: var(--bg-color);
+}
+
+.item-footer {
+    color: rgb(236, 196, 16) !important;
+    font-weight: bold;
+}

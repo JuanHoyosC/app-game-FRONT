@@ -1,0 +1,14 @@
+.bg-home {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    overflow-y: hidden;
+    overflow: hidden;
+    background-color: var(--color-primario);
+}
+
+.home {
+    max-height: calc(100vh - 148px);
+    overflow-y: hidden;
+}

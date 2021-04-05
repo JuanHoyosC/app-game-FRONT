@@ -7,7 +7,7 @@ export const Footer = () => {
         <footer className="footer">
             <div className="lista">
                 <li className="nav-item">
-                    <NavLink activeClassName="active" exact className="nav-link d-flex flex-column align-items-center" to="/habitos">
+                    <NavLink activeClassName="active" exact className="nav-link d-flex flex-column align-items-center" to="/">
                         <i className="fas fa-clipboard-list"></i>
                         <small>Habitos</small>
                     </NavLink>

@@ -1,7 +1,7 @@
 :root {
     --color-primario:  #363A3F;
-    --color-secundario: rgb(41, 126, 119);
-    --bg-nav-gradient: rgb(82, 92, 180);
+    --color-secundario: #7E57C2;
+    --bg-color: #4a4e52;
     --animate-duration: 1s;
 }
 
@@ -11,7 +11,7 @@
     overflow-x: hidden;
 }
 
-h5, .lista {
+h5, h6, .lista {
     overflow-y: hidden;
 }
 

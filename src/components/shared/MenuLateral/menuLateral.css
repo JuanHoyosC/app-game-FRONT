@@ -1,9 +1,71 @@
 .menuLateral {
     background-color: var(--color-primario);
     border-left: none;
+    width: 350px;
 }
 
-.menuLateral i {
+.menuLateral .fa-bars {
     font-size: 20px;
     cursor: pointer;
+}
+
+
+.menuLateral .form-control {
+    background: var(--bg-color) !important;
+    color: #fff;
+    border: none;
+}
+
+.menuLateral .form-control::placeholder {
+    color: #fff;
+}
+
+.menuLateral .btn-añadir {
+    background: var(--color-secundario) !important;
+    padding: 2px 10px !important;
+    font-size: 14px;
+    height: 35px;
+}
+
+.btn-añadir i {
+    font-size: 14px;
+}
+
+
+.menuLateral .off i{
+    font-size: 32px !important;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    background: var(--bg-color);
+}
+
+.menuLateral .off i:active {
+    background-color: var(--bg-color);
+}
+
+.menuLateral .off i:hover {
+    background: var(--color-secundario);
+}
+
+
+.btn-clasificatoria {
+    width: 100%;
+    background-color: var(--bg-color);
+    color: #fff !important;
+    box-shadow: none !important;
+}
+
+.btn-clasificatoria {
+    color: #fff !important;
+}
+
+.active-btn-clasificatoria {
+    background: var(--color-secundario);
+}
+
+@media screen and (max-width: 600px) {
+    .menuLateral {
+        width: 100%;
+    }
 }

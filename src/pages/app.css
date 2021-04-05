@@ -9,6 +9,14 @@
 }
 
 .home {
-    max-height: calc(100vh - 148px);
+    max-height: calc(100vh - 80px);
     overflow-y: auto;
+}
+
+
+
+@media screen and (max-width: 600px) {
+    .home {
+        max-height: calc(100vh - 140px);
+    }
 }

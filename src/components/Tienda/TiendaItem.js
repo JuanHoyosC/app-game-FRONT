@@ -8,8 +8,8 @@ export const TiendaItem = ({precio, imagen}) => {
                 <div className="card-body item-body text-center">
                         <img src={ imagen } alt=""/>
                 </div>
-                <div className="card-footer item-footer text-muted">
-                    <i className="fas fa-coins"></i> {precio}
+                <div className="card-footer item-footer d-flex justify-content-center align-items-center text-muted">
+                    <img src="https://i.ibb.co/Yh22kyR/Coin.png" className="icon-coin me-2" alt="icon-coin"/> {precio}
                 </div>
             </div>
         </div>

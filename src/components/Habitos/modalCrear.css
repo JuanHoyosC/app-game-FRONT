@@ -1,0 +1,7 @@
+.modal-crear-habito, .modal-crear {
+    background-color: var(--color-primario);
+}
+
+.modal-content { 
+    border-radius: 0 !important;
+}

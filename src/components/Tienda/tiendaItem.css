@@ -13,7 +13,12 @@
     background-color: var(--bg-color);
 }
 
+.icon-coin {
+    width: 20px;
+    height: 20px;
+}
+
 .item-footer {
-    color: rgb(236, 196, 16) !important;
+    color: #F6D187 !important;
     font-weight: bold;
 }

@@ -13,6 +13,14 @@
     border-radius: 0 10px 10px 0;
 }
 
+.bg-vida {
+    background-color: #F66262;
+}
+
+.bg-exp {
+    background-color: #F6D187;
+}
+
 .imagen-perfil img{
     height: 100%;
     object-fit: cover;
@@ -22,10 +30,17 @@
     font-size: 12.5px !important;
 }
 
-@media screen and (max-width: 600px){ 
-    .menuLateral .perfil-estado {
-        display: block;
-    }
+.perfil-estado .imagen-icon img {
+    width: 22px;
+}
+
+.img-coin, .img-diamond {
+    width: 15px;
+    height: 15px;
+    margin-right: 8px;
+}
+.menuLateral .perfil-estado {
+    display: block;
 }
 
 

@@ -1,9 +1,9 @@
 import React from 'react'
 
-export const Registro = () => {
+export const NotFound = () => {
     return (
         <div>
-            Registro
+            Not Found
         </div>
     )
 }

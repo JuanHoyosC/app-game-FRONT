@@ -10,7 +10,7 @@ export const Tienda = () => {
     { img: 'https://image.flaticon.com/icons/png/512/129/129094.png', precio: 10 },
     { img: 'https://cdn2.iconfinder.com/data/icons/video-game-color-line/48/video_game_pixel_perfect_color_line_icons_7-life-up-512.png', precio: 80 }]
     return (
-        <div className="row animate__animated animate__fadeInLeftBig">
+        <div className="row">
             <Perfil />
             {items.map(({ precio, img }, index) => <TiendaItem precio={precio} imagen={img} key={index} />)}
         </div>

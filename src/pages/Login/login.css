@@ -1,0 +1,61 @@
+.login-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-primario);
+    height: 100vh;
+}
+
+
+.form-login {
+    width: 350px;
+    box-shadow: 1px 1px 10px 0 rgba(0,0,0,.1);
+}
+
+.form-login input {
+    background-color: var(--bg-color) !important;
+    border: none;
+    height: 35px;
+    color: #fff !important;
+}
+
+.form-login label {
+    color: #fff;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.btn-ingresar {
+    background-color: var(--color-secundario);
+    color: #fff;
+    width: 70%;
+}
+
+.btn-ingresar:hover {
+    color: #fff;
+}
+
+
+.nuevaCuenta {
+    display: flex;
+    justify-content: center;
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+}
+
+.registrate-aqui, .registrate-aqui:hover {
+    display: block;
+    font-weight: bold;
+    color: var(--color-secundario);
+    text-decoration: none;
+    margin-left: 16px;
+}
+
+@media screen and (max-width: 400px) {
+    .form-login {
+        width: 100%;
+        box-shadow: none !important;
+    }
+}

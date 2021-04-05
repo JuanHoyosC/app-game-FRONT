@@ -1,10 +1,24 @@
 .nav-game.navbar {
     background: var(--color-primario);;
     border-bottom: 0.5px solid rgba(255, 255, 255, 0.13) !important;
+    height: 56px;
+    padding-top: 0;
+    padding-bottom: 0;
+    overflow-y: hidden;
 }
 
 .nav-game .navbar-brand {
     color: rgb(255, 255, 255) !important;
+}
+
+.nav-game .nav-item {
+    display: flex;
+    align-items: center;
+    height: 56px;
+}
+
+.nav-game .container {
+    height: 56px !important;
 }
 
 .nav-game .nav-link {
@@ -15,13 +29,14 @@
 }
 
 .nav-game .active {
-    font-weight: bold;
-    color: var(--color-secundario) !important;
-    border-bottom: 2px solid var(--color-secundario);
+    background-color: var(--color-secundario);
+    color: #fff;
+    padding: 2px 10px;
 }
 
 .icon-navbar {
-    display: none;
+    cursor: pointer;
+    font-size: 20px;
 }
 
 @media screen and (max-width: 600px){ 
@@ -33,9 +48,4 @@
         justify-content: space-between !important;
     }
 
-    .icon-navbar {
-        display: block;
-        font-size: 20px;
-        cursor: pointer;
-    }
 }

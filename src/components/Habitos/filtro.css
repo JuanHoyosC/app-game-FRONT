@@ -1,0 +1,51 @@
+.modal-filtro-body {
+    background-color: var(--color-primario);
+    padding: 20px;
+    padding-bottom: 20px !important;
+}
+
+.modal-filtro-body .form-check {
+    padding: 0;
+    padding-right: 8px;
+}
+
+.modal-filtro-body .form-check:last-child {
+    padding: 0;
+}
+
+.modal-filtro-body .form-check-label {
+    display: block;
+    background-color: var(--bg-color);
+    color: #fff;
+    padding: 2px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.check-active {
+    background-color: var(--color-secundario) !important;
+}
+
+.modal-content {
+    border-radius: 0 !important;
+}
+
+.titulo-filter, .titulo-filter:focus {
+    background-color: var(--bg-color);
+    color: #fff;
+    border: none;
+}
+
+.titulo-filter::placeholder {
+    color: #fff;
+}
+
+.reiniciar-btn, .reiniciar-btn:hover {
+    color: #fff;
+}
+
+
+
+.hecho-btn, .hecho-btn:hover {
+    color: var(--color-secundario);
+}

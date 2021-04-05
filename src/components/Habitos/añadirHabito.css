@@ -1,0 +1,79 @@
+.dificultad {
+    background: var(--bg-color);
+    height: 120px;
+    cursor: pointer;
+}
+
+
+.form-habito input, .form-habito textarea {
+    background: var(--bg-color) !important;
+    color: #fff !important;
+    border: none !important;
+    resize: none;
+}
+
+.form-habito input::placeholder, .form-habito textarea::placeholder {
+    color: #fff;
+}
+
+.form-habito textarea {
+    height: 150px;
+    overflow-y: auto;
+}
+
+.form-habito .col-3 {
+    padding: 4px;
+}
+
+.form-habito .active {
+    background: var(--color-secundario);
+}
+
+.form-habito .active-text {
+    color: var(--color-secundario) !important;
+}
+
+.dificultadItem:first-child {
+    padding-left: 0;
+}
+
+.dificultadItem:last-child {
+    padding-right: 0;
+}
+
+.form-habito small {
+    margin-top: 4px;
+}
+
+
+.form-habito .btn-crear {
+        background: var(--color-secundario);
+        padding: 2px 10px !important;
+}
+
+.frecuenciaItem {
+    background-color: var(--bg-color);
+    padding: 2px 10px;
+    border-radius: 5px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+    .dificultad {
+        height: 80px;
+    }
+}
+
+.frecuencia {
+    background: var(--bg-color);
+    color: #fff;
+    border-radius: 15px !important;
+    text-align: center;
+    padding: 15px;
+    overflow: hidden
+}
+
+.frecuencias .col-3{
+    overflow: hidden;
+}

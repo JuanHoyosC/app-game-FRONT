@@ -1,0 +1,15 @@
+
+.clasificatoria {
+    border: 1px solid #fff;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.2); 
+}
+
+.clasificatoria th, td {
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.1) !important;
+    background-color: var(--bg-color);
+}
+
+.clasificatoria tr {
+    background-color: var(--bg-color);
+}

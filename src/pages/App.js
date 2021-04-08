@@ -37,23 +37,19 @@ export const App = () => {
                 <div>
                     <NavBar />
                     <div className="container-fluid mt-4">
-                        {transitions.map(({ item, props, key }) => (
-                            <animated.div key={key} style={props} className="position-absolute home w-100 pe-4">
-                                <Switch location={item}>
-                                    <Route  exact path="/misiones" component={Misiones} />
-                                    <Route  exact path="/tienda" component={Tienda} />
-                                    <Route  exact path="/agregar" component={Añadir} />
-                                    <Route  exact path="/clasificatoria" component={Clasificatoria} />
-                                    <Route  path="/notFound" component={NotFound} />
-                                    <Route  exact path="/" component={Habitos} />
-                                    <Redirect to="/notFound" />
-                                </Switch>
-                            </animated.div>
-                        ))}
+                        <Switch>
+                            <Route exact path="/misiones" component={Misiones} />
+                            <Route exact path="/tienda" component={Tienda} />
+                            <Route exact path="/agregar" component={Añadir} />
+                            <Route exact path="/clasificatoria" component={Clasificatoria} />
+                            <Route path="/notFound" component={NotFound} />
+                            <Route exact path="/" component={Habitos} />
+                            <Redirect to="/notFound" />
+                        </Switch>
                     </div>
                 </div>
-                <ModalCrear/>
-                <FiltroModal/>
+                <ModalCrear />
+                <FiltroModal />
                 <Mensajes />
                 <Footer />
             </div>

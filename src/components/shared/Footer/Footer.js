@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import './footer.css';
 
 export const Footer = () => {
+
     return (
         <footer className="footer">
             <div className="lista">

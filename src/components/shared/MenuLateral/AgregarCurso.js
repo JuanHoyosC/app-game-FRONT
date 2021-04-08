@@ -10,7 +10,6 @@ export const AgregarCurso = () => {
 
     const handleSubimit = ( e ) => {
         e.preventDefault();
-        console.log( codigo )
     }
 
     return (

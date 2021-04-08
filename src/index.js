@@ -6,6 +6,7 @@ import './index.css';
 import { RouterPrincipal } from './router/RouterPrincipal';
 
 ReactDOM.render(
+  
   <RouterPrincipal />, document.getElementById('root')
 );
 

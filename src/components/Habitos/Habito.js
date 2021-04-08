@@ -1,6 +1,10 @@
 import React from 'react'
+import { useHabitos } from '../../hooks/useHabitos';
 import './habito.css';
-export const Habito = ({ titulo, descripcion, id }) => {
+export const Habito = ({ titulo, descripcion, id, dispatch }) => {
+
+    const [ , handleDelete ] = useHabitos({} , id, dispatch );
+
     return (
         <div className="habito accordion-item">
             <div className="d-flex header-btn">
@@ -17,7 +21,7 @@ export const Habito = ({ titulo, descripcion, id }) => {
                     {descripcion}
                     <div className="d-flex header-btn justify-content-between">
                         <button className="btn"><i className="fas fa-edit"></i></button>
-                        <button className="btn"><i className="fas fa-trash"></i></button>
+                        <button className="btn" onClick={ handleDelete }><i className="fas fa-trash"></i></button>
                     </div>
                 </div>
             </div>

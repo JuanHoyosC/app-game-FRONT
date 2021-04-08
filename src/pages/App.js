@@ -23,8 +23,8 @@ import { NotFound } from './Home/NotFound/NotFound';
 import { FiltroModal } from '../components/Habitos/FiltroModal';
 
 export const App = () => {
+
     const { location } = useContext(__RouterContext);
-    console.log(location)
     const transitions = useTransition(location, location => location.pathname, {
         from: { opacity: 0, transform: "translate(-100%, 0)" },
         enter: { opacity: 1, transform: "translate(0%, 0)" },
@@ -52,8 +52,8 @@ export const App = () => {
                         ))}
                     </div>
                 </div>
-                <ModalCrear />
-                <FiltroModal />
+                <ModalCrear/>
+                <FiltroModal/>
                 <Mensajes />
                 <Footer />
             </div>

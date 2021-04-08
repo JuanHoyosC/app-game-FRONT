@@ -12,6 +12,12 @@
     resize: none;
 }
 
+.dificultadItem input, .frecuenciaItem input {
+    position: absolute;
+    width: 0.1px;
+    opacity: 0;
+}
+
 .form-habito input::placeholder, .form-habito textarea::placeholder {
     color: #fff;
 }

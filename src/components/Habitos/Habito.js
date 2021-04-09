@@ -3,6 +3,8 @@ import { useHabitos } from '../../hooks/useHabitos';
 import './habito.css';
 export const Habito = ({ titulo, descripcion, id, dispatch }) => {
 
+    console.log(id)
+
     const [ , handleDelete ] = useHabitos({} , id, dispatch );
 
     return (

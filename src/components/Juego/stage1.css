@@ -1,0 +1,22 @@
+.stage1 * {
+    user-select: none;
+}
+
+.stage1 .fichas {
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+.sortable, .stage1 .fichas  {
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: hidden;
+    min-height: 200px;   
+    border: 1px dashed var(--color-secundario);
+}
+
+.fichas .sortable {
+    min-height: 100px !important;
+    border: none;
+}
+

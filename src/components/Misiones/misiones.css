@@ -52,3 +52,20 @@
     display: none !important;
 }
 
+
+.btn-descarga {
+    background-color: var(--color-secundario) !important;
+}
+
+.icono-mision i{
+    width: 30px;
+}
+
+.icono-mision .fa-play:hover {
+    color: var(--color-secundario);
+}
+
+.no-mision {
+    padding: 20px;
+}
+

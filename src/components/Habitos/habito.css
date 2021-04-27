@@ -56,15 +56,36 @@
 }
 
 .habito .accordion-body {
+    position: relative;
     background-color: var(--bg-color);
     color: #fff;
-    padding-bottom: 0;
+    padding-bottom: 0 !important;
+    padding-left: 58px;
+    padding-right: 58px;
 }
 
 .habito .accordion-body .header-btn {
-    margin: 0 -20px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 -58px;
     margin-top: 16px;
     height: 51px;
+}
+
+.habito .mas-info {
+    background: var(--color-primario);
+    display: flex;
+    align-items: center;
+    position: absolute;
+    height: 51px;
+    bottom: 0px;
+    right: 50px;
+    left: 50px;
+}
+
+.mas-info span {
+    border-radius: 0px;
+    padding: 0 8px;
 }
 
 
@@ -74,6 +95,21 @@
     height: 35px;
 }
 
+
+
+.btn-eliminar {
+    background: var(--color-red) !important;
+}
+
+.btn-done {
+    background: #21b655 !important;
+}
+
+.habito-fecha, .habito-dificultad {
+    background: var(--color-primario) !important;
+    padding: 0 10px;
+    border-radius: 5px;
+}
 
 @media screen and (max-width: 600px) {
     .habitos-header .btn-modal {

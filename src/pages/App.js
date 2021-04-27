@@ -1,12 +1,5 @@
-import React, { useContext } from 'react'
-import {
-    Switch,
-    Route,
-    Redirect,
-    __RouterContext
-} from "react-router-dom";
-
-import { useTransition, animated } from 'react-spring';
+import React from 'react'
+import { Switch, Route, Redirect } from "react-router-dom";
 
 import './app.css';
 
@@ -19,8 +12,10 @@ import { Añadir } from './Home/Añadir/Añadir';
 import { Mensajes } from '../components/shared/Mensajes/Mensajes';
 import { Clasificatoria } from './Home/Clasificatoria/Clasificatoria';
 import { ModalCrear } from '../components/Habitos/ModalCrear';
-import { NotFound } from './Home/NotFound/NotFound';
+import { NotFound } from '../pages/Home/NotFound/NotFound'
 import { FiltroModal } from '../components/Habitos/FiltroModal';
+import { Juegos } from './Home/Juego/Juegos';
+
 
 export const App = () => {
     return (
@@ -33,6 +28,7 @@ export const App = () => {
                             <Route exact path="/misiones" component={Misiones} />
                             <Route exact path="/tienda" component={Tienda} />
                             <Route exact path="/agregar" component={Añadir} />
+                            <Route exact path="/juego" component={Juegos} />
                             <Route exact path="/clasificatoria" component={Clasificatoria} />
                             <Route path="/notFound" component={NotFound} />
                             <Route exact path="/" component={Habitos} />

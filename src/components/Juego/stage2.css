@@ -1,0 +1,36 @@
+.stage2 * {
+    user-select: none;
+}
+
+.fichas {
+    border: 1px dotted var(--color-secundario);
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 100px;
+}
+
+.container-result {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px dotted var(--color-secundario);
+    overflow: hidden;
+}
+
+.input {
+    width: 30px;
+    background: var(--bg-color) !important;
+    color: #fff !important;
+    border: none;
+    margin:0 5px;
+    text-align: center;
+    padding: 1px;
+    font-size: inherit;
+    display: inline-block;
+}
+
+.input:focus {
+    border: none;
+    box-shadow: none;
+    color: #fff !important;
+}
+

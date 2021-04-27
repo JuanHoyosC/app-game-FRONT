@@ -1,37 +1,38 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { getClasificatoria } from '../../../services/getClasificatoria';
 import './clasificatoria.css';
+import { FilaItem } from './FilaItem';
 
 export const Clasificatoria = () => {
+
+
+    const [clasificatoria, setClasificatoria] = useState([]);
+    const usuario = useSelector(state => state.auth);
+
+    console.log(clasificatoria)
+
+    useEffect(() => {
+        getClasificatoria(usuario.id_clase).then(estudiantes => setClasificatoria(estudiantes));
+    }, [usuario.id_clase])
+
+
     return (
-        <table className="table clasificatoria">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Larry the Bird</td>
-                    <td>@twitter</td>
-                    <td>@twitter</td>
-                </tr>
-            </tbody>
-        </table>
+        <>
+        <h3 className="text-center text-white mb-5">Top 10 de los mejores jugadores</h3>
+            <table className="table clasificatoria">
+                <thead>
+                    <tr>
+                        <th scope="col">posición</th>
+                        <th scope="col">Usuario</th>
+                        <th scope="col">Nivel</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {clasificatoria.map(({ nivel, username }, index) => <FilaItem posicion={index + 1}
+                        nivel={nivel} username={username} key={index} />)}
+                </tbody>
+            </table>
+        </>
     )
 }

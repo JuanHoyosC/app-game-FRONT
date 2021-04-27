@@ -2,6 +2,7 @@
     --color-primario:  #363A3F;
     --color-secundario: #7E57C2;
     --bg-color: #4a4e52;
+    --color-red: #EA3548;
     --animate-duration: 1s;
 }
 
@@ -11,8 +12,21 @@
     overflow-x: hidden;
 }
 
-h5, h6, .lista {
+h1, h2, h3, h4, h5, h6, .lista, span, button {
     overflow-y: hidden;
+}
+
+.swal2-content, .swal2-title {
+    color: #fff !important;
+} 
+
+.swal2-timer-progress-bar {
+    background-color: var(--color-secundario) !important;
+}
+
+.swal2-styled.swal2-confirm {
+    width: 50%;
+    background-color: var(--color-secundario) !important;
 }
 
 button, input {
@@ -22,3 +36,12 @@ button, input {
 .button:focus, input:focus {
     box-shadow: none !important;
 }
+
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+
+input[type="number"] { -moz-appearance:textfield; }

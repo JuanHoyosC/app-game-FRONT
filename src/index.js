@@ -4,10 +4,13 @@ import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
 import { RouterPrincipal } from './router/RouterPrincipal';
+import { Provider } from 'react-redux';
+import { store } from './store/store';
 
 ReactDOM.render(
-  
-  <RouterPrincipal />, document.getElementById('root')
+  <Provider store={store}>
+  <RouterPrincipal />
+  </Provider>, document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change

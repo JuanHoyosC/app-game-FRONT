@@ -1,0 +1,20 @@
+.loading-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #F2F3F6;
+    
+}
+
+
+.imagen-loading {
+    width: 500px;
+    object-fit: cover;
+}
+
+@media screen and (max-width: 500px) {
+    .imagen-loading {
+        width: 100%;
+    }
+}

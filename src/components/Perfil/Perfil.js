@@ -1,26 +1,26 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { Estado } from './Estado';
 import './perfil.css';
 import '../../assets/experiencia-icon.png'
-import { AuthContext } from '../../auth/AuthContext';
+import { useSelector } from 'react-redux';
+
 
 export const Perfil = () => {
-    const { user } = useContext(AuthContext)
-    const { user:usuario } = user;
-
+    
+    const usuario = useSelector(state => state.auth)
 
     return (
         <div className="perfil-estado mb-5">
             <div className="row mx-0">
                 <div className="col-3 ps-0 imagen-perfil">
-                    <img src="https://www.shareicon.net/data/512x512/2016/08/05/807299_player_512x512.png" width="100%" alt="imagen" />
+                    <img src={ usuario.foto } width="100%" alt="imagen" />
                 </div>
 
                 <div className="col-9 pe-0">
                     <div className="mb-3">
-                        <Estado color="bg-vida" estado="Puntos de vida" estadoActual={usuario.vida_actual} estadoMaximo={usuario.vida} imgIcon="https://i.ibb.co/chR5njb/Heart.png" />
+                        <Estado color="bg-vida" estado="Puntos de vida" estadoActual={usuario.vida} estadoMaximo={usuario.vida_actual} imgIcon="https://i.ibb.co/chR5njb/Heart.png" />
                     </div>
-                    <Estado color="bg-exp" estado="Experiencia" estadoActual={usuario.experiencia} estadoMaximo={50} imgIcon="https://i.ibb.co/Rb7g1GR/Lightning.png"/>
+                    <Estado color="bg-exp" estado="Experiencia" estadoActual={usuario.experiencia} estadoMaximo={usuario.nivel*100} imgIcon="https://i.ibb.co/Rb7g1GR/Lightning.png"/>
                 </div>
             </div>
 

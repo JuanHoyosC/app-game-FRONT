@@ -23,7 +23,8 @@
 
 .imagen-perfil img{
     height: 100%;
-    object-fit: cover;
+    
+    object-fit: contain;
 }
 
 .perfil-estado small, .perfil-estado i{
@@ -44,7 +45,7 @@
 }
 
 
-@media screen and (max-width: 500px){ 
+@media screen and (max-width: 600px){ 
     .perfil-estado {
         display: block;
     }

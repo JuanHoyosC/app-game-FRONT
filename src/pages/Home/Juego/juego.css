@@ -1,0 +1,36 @@
+.siguiente {
+    background: var(--color-secundario) !important;
+}
+.fa-question-circle {
+    width: 30px;
+    margin-left: 16px;
+}
+
+
+.stage5 {
+    width: 500px;
+    border: 1px solid rgba(255,255,255,.1);
+    box-shadow: 5px 5px 10px  #f6d1876c;
+}
+
+.stage5 .imagen-icon img {
+    width: 50px;
+}
+
+.btn-jugarAgain {
+    background: var(--color-secundario) !important;
+    color: #fff;
+}
+
+.btn-jugarAgain:hover {
+    color: #fff;
+}
+
+.stage5 .fa-trophy  {
+    color: #F6D187;
+}
+@media screen and (max-width: 500px ){
+    .stage5 {
+        width: 100%;
+    }
+}

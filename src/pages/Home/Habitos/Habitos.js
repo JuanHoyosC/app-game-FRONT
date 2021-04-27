@@ -1,19 +1,32 @@
-import React, { useContext } from 'react'
-import { AuthContext } from '../../../auth/AuthContext';
+import React, { useEffect } from 'react';
 import { Habito } from '../../../components/Habitos/Habito';
 import { HabitosHeader } from '../../../components/Habitos/HabitosHeader';
 import { Perfil } from '../../../components/Perfil/Perfil';
+import { getHabitos } from '../../../services/getHabitos';
+import { types } from '../../../types/types';
+
+import { useDispatch, useSelector } from 'react-redux';
 import './habitos.css';
 
 export const Habitos = () => {
-    const { dispatchHabitos, habitos } = useContext(AuthContext)
+
+    const dispatch = useDispatch();
+    const habitos = useSelector(state => state.habitos)
+    const usuario = useSelector(state => state.auth)
+
+    
+
+    useEffect(() => {
+        getHabitos( usuario._id ).then(habitos => dispatch({type:types.RETURN_HABITO, payload: habitos}));
+    }, [ usuario._id, dispatch ])
+
     return (
         <div className="habitos">
             <Perfil />
-            <HabitosHeader dispatch={dispatchHabitos} />
+            <HabitosHeader />
             <div className="accordion accordion-flush" id="accordionFlushExample">
-                {habitos.map(({ titulo, descripcion, _id }) =>
-                    <Habito titulo={titulo} descripcion={descripcion} dispatch={dispatchHabitos} id={ _id } key={ _id } />)}
+                {habitos.map((habito) =>
+                    <Habito habito={ habito }  key={ habito._id } />)}
             </div>
         </div>
     )

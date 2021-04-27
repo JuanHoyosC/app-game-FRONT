@@ -1,6 +1,5 @@
 
 .clasificatoria {
-    border: 1px solid #fff;
     box-shadow: 5px 5px 10px rgba(0,0,0,0.2); 
 }
 
@@ -12,4 +11,16 @@
 
 .clasificatoria tr {
     background-color: var(--bg-color);
+}
+
+.icono-clas.fa-trophy {
+    color: #F6D187;
+}
+
+.icono-clas.fa-medal {
+    color: rgb(42, 135, 212);
+}
+
+.icono-clas {
+    font-size: 20px;
 }

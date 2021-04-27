@@ -1,4 +1,7 @@
 .dificultad {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: var(--bg-color);
     height: 120px;
     cursor: pointer;
@@ -82,4 +85,8 @@
 
 .frecuencias .col-3{
     overflow: hidden;
+}
+
+.img-dificultad {
+    width: 70%;
 }

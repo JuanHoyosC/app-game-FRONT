@@ -1,12 +1,12 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom';
 import './login.css';
 import { useForm } from '../../hooks/useForm';
 import { useLogin } from '../../hooks/useLogin';
-import { AuthContext } from '../../auth/AuthContext';
+import { useDispatch } from 'react-redux';
 export const Login = ({ history }) => {
 
-    const { dispatch } = useContext(AuthContext)
+    const dispatch = useDispatch();
     const [form, hanleInputChange] = useForm({correo: '', password: ''}); 
     const { correo, password } = form;
     const [ handleSubmit ] = useLogin( form, dispatch, history );
@@ -14,6 +14,9 @@ export const Login = ({ history }) => {
     return (
         <div className="login-body">
             <form className="form-login p-5 px-3" autoComplete="off" onSubmit={ handleSubmit }>
+                <div className="ilustracion-login">
+
+                </div>
                 <h5 className="text-ingresar mb-3 text-white text-center">Ingresar</h5>
                 <div className="form-floating mb-3">
                     <input type="email" className="form-control" value={ correo } name="correo" 

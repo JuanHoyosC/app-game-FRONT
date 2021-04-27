@@ -1,51 +1,41 @@
-import React, { useEffect, useReducer } from 'react'
-import {
-    BrowserRouter,
-    Switch,
-    Route
-} from "react-router-dom";
+import React, { useEffect, useState } from 'react'
+import { BrowserRouter, Switch } from "react-router-dom";
 import { Login } from '../pages/Login/Login';
 import { Registro } from '../pages/Registro/Registro';
 import { App } from '../pages/App';
-import { AuthContext } from '../auth/AuthContext';
-import { authReducer } from '../auth/authReducer';
 import { PrivateRoutes } from './PrivateRoutes';
-import jwt_decode from "jwt-decode"
-import { habitoReducer } from '../reducers/habitoReducer';
-import { useGetHabitos } from '../hooks/useGetHabitos';
-
-const init = () => {
-    const token = localStorage.getItem('appToken');
-    if(token){
-        const decoded = jwt_decode(token);
-        return ({ logged: true, user: { ...decoded.token }});
-    }
-
-    return ({ logged: false });
-}
+import { PublicRoutes } from './PublicRoutes';
+import { getUser } from '../services/getUser';
+import { useDispatch, useSelector } from 'react-redux';
+import './routerPrincipal.css'
 
 export const RouterPrincipal = () => {
-
-    const [habitos, dispatchHabitos] = useReducer(habitoReducer, []);
-
-    //UseReducer habitos
-    const [user, dispatch] = useReducer(authReducer, {}, init)
-    const [habitosInit] = useGetHabitos(user.user._id);
+    const [checking, setChecking] = useState(true);
+    const dispatch = useDispatch();
+    const usuario = useSelector(state => state.auth);
 
     useEffect(() => {
-        dispatchHabitos({ type: '', payload: habitosInit });
-    }, [habitosInit, dispatchHabitos])
+        getUser( dispatch ).then(() => setChecking(false))
+            .catch(() => setChecking(false));
+    }, [ dispatch ])
+
+    if (checking) {
+        return (
+            <div className="loading-page">
+                <img src="https://i.ibb.co/Cw6yJ8N/dribbble-1.gif" alt="imagen-loading" className="imagen-loading"/>
+            </div>
+        );
+    }
+
 
     return (
 
         <BrowserRouter>
-            <AuthContext.Provider value={{ user, dispatch, dispatchHabitos, habitos }}>
-                <Switch>
-                    <Route exact path="/login" component={Login} />
-                    <Route exact path="/registro" component={Registro} />
-                    <PrivateRoutes path="/" isAuthenticated={ user.logged } component={ App } />
-                </Switch>
-            </AuthContext.Provider>
+                    <Switch>
+                        <PublicRoutes exact path="/login" isAuthenticated={usuario.logged} component={Login} />
+                        <PublicRoutes exact path="/registro" isAuthenticated={usuario.logged} component={Registro} />
+                        <PrivateRoutes path="/" isAuthenticated={usuario.logged} component={App} />
+                    </Switch>
         </BrowserRouter>
     )
 }

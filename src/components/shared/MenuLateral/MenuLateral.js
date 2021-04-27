@@ -1,23 +1,27 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { Perfil } from '../../Perfil/Perfil';
 import { AgregarCurso } from './AgregarCurso';
 import './menuLateral.css';
 import { BtnClasificatoria } from './BtnClasificatoria';
-import { AuthContext } from '../../../auth/AuthContext';
+import  { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux';
+import { types } from '../../../types/types';
 
-export const MenuLateral = ({ history }) => {
-    const {user, dispatch } = useContext(AuthContext)
-    const { user:usuario } = user;
+export const MenuLateral = () => {
+    
+    const dispatch = useDispatch();
+    const usuario = useSelector(state => state.auth)
+    
 
-    const hanlelogout = () => {
-        dispatch({type: 'logout'});
-        history.push('/login');
+    const hanledlogout = () => {
+        dispatch({type: types.LOGOUT});
+        localStorage.removeItem('appToken');
     }
 
     return (
         <div className="offcanvas menuLateral offcanvas-end" tabIndex="-1" id="menuLateral" aria-labelledby="offcanvasRightLabel">
             <div className="offcanvas-header text-white">
-                <h5 id="offcanvasRightLabel">{  usuario?.nombre } { usuario?.apellidos }</h5>
+                <h5 id="offcanvasRightLabel">{  usuario?.username } </h5>
                 <i className="fas fa-bars" data-bs-dismiss="offcanvas" aria-label="Close"></i>
             </div>
             <div className="offcanvas-body d-flex flex-column justify-content-between">
@@ -26,8 +30,8 @@ export const MenuLateral = ({ history }) => {
                     <AgregarCurso />
                     <BtnClasificatoria />
                 </div>
-                <button className="off btn" onClick={ hanlelogout }><i className="fas fa-power-off"></i></button>
-            </div>
+                <Link to='/login' className="off btn" onClick={ hanledlogout } data-bs-dismiss="offcanvas" aria-label="Close"><i className="fas fa-power-off"></i></Link>
+                </div>
         </div>
     )
 }

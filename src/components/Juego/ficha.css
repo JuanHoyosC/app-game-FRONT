@@ -1,0 +1,49 @@
+.cuadrado {
+    width: 100px;
+    height: 100px;
+}
+
+.rectangulo {
+    width: 100px;
+    height: 50px;
+}
+
+.rectangulo-reverse {
+    width: 50px;
+    height: 100px;
+}
+
+.cuadrito {
+    width: 50px;
+    height: 50px;
+}
+
+.rectangulo, .rectangulo-reverse {
+    transition: all .2s linear;
+}
+
+.cuadrado, .cuadrito, .rectangulo, .rectangulo-reverse {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-color);
+    cursor: move;
+}
+
+.valor-ficha {
+    font-size: 18px;
+    color: #fff;
+    user-select: none;
+}
+
+.icono-move {
+    position: absolute;
+    color: #fff;
+    top: 5px;
+    right: 5px;
+}
+
+.container-result .cuadrado, .container-result .cuadrito, .container-result .rectangulo, .container-result .rectangulo-reverse {
+    margin: 0 !important;
+    border: 1px solid var(--color-secundario);
+}

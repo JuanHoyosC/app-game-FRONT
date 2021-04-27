@@ -1,9 +1,9 @@
 import React from 'react'
 
-export const FiltroItem = ({ index, value }) => {
+export const FiltroItem = ({ index, value, setFilter }) => {
 
     const handleFocus = () => {
-        console.log(value)
+        setFilter(data => ({ ...data, frecuencia: value }));
         document.querySelectorAll('.form-check-label').forEach(el => el.classList.remove('check-active'));
         document.querySelector(`#label${index}`).classList.add('check-active');
     }

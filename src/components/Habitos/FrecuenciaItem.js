@@ -7,6 +7,7 @@ export const FrecuenciaItem = ({ frecuencia, index, change, value }) => {
         document.querySelectorAll('.frecuenciaItem').forEach(el => el.classList.remove('active'));
         document.querySelector(`#frecuencia${index}`).classList.add('active');
     }
+    
     return (
         <label  className={`${ index === 0 ? 'frecuenciaItem d-block active': 'frecuenciaItem d-block' }`} id={`frecuencia${index}`} htmlFor={ 'input' + index } onClick={ handleSeleccionar }>
             <input className="form-check-input" type="radio" 

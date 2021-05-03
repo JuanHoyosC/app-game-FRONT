@@ -60,6 +60,16 @@
     color: #fff !important;
 }
 
+.select-curso {
+    background: var(--bg-color) !important;
+    color: #fff !important;
+    border: none !important;
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='none' stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/></svg>") !important;
+    background-repeat: no-repeat !important;
+    background-position: right .75rem center !important;
+    background-size: 20px 16px !important;
+}
+
 .active-btn-clasificatoria {
     background: var(--color-secundario);
 }

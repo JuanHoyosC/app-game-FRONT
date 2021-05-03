@@ -20,6 +20,7 @@ export const Clasificatoria = () => {
     return (
         <>
         <h3 className="text-center text-white mb-5">Top 10 de los mejores jugadores</h3>
+            <img src="https://i.ibb.co/Phw5zqH/success-1.png" alt="img-clasificatoria" className="clasi-img"/>
             <table className="table clasificatoria">
                 <thead>
                     <tr>

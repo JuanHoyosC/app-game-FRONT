@@ -10,10 +10,11 @@ export const Registro = () => {
     const [form, hanleInputChange, handleReset] = useForm({ correo: '', username: '', password: '', repetirPass: '', nombre: '', apellidos: '', foto: '' });
     const { correo, username, password, repetirPass, nombre, apellidos } = form;
     const [handleSubmit, loading] = useRegistro(form , handleReset);
+   
     const handleUpload = (e) => {
         const file = e.target.files[0];
         if (!file) return;
-        form.foto = URL.createObjectURL(file);
+        form.foto = e.target.files[0];
         document.querySelector('#img-perfil').src = URL.createObjectURL(file);
     }
 

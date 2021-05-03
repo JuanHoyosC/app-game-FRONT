@@ -2,6 +2,7 @@ import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { ReactSortable } from "react-sortablejs";
 import { trinomioCuadrado } from '../../services/trinomioCuadrado';
 import { Ficha } from './Ficha';
+import { ModalStage2 } from './ModalStage2';
 import { Sortable } from './Sortable';
 import './stage2.css';
 
@@ -58,9 +59,8 @@ export const Stage2 = ({ setActive }) => {
 
     return (
         <div className="stage2">
-            <div className="d-flex mb-5 justify-content-between">
-                <h5 className="text-white mb-0">Ordan las fichas para crear un cuadrado perfecto</h5>
-                <h5 className="text-white mb-0"><i className="fas fa-question-circle"></i></h5>
+            <div className="d-flex mb-5 justify-content-end">
+                <h4 className="text-white mb-0 cursor"  data-bs-toggle="modal" data-bs-target="#modalStage2"><i className="fas fa-question-circle"></i></h4>
             </div>
 
             <div className="formula mb-3">
@@ -92,7 +92,7 @@ export const Stage2 = ({ setActive }) => {
                 </ReactSortable>
             </div>
 
-
+        <ModalStage2 />
         </div>
     )
 }

@@ -12,6 +12,17 @@
     overflow-x: hidden;
 }
 
+.cursor {
+    cursor: pointer;
+}
+
+* {
+    font-family: 'Poppins',sans-serif;
+}
+
+i {
+    font-family: inherit;
+}
 h1, h2, h3, h4, h5, h6, .lista, span, button {
     overflow-y: hidden;
 }
@@ -45,3 +56,16 @@ margin: 0;
 }
 
 input[type="number"] { -moz-appearance:textfield; }
+
+button, input {
+    box-shadow: none !important;
+  }
+  
+  .button:focus, input:focus {
+    box-shadow: none !important;
+  }
+  
+  
+input, input:focus,textarea,  textarea:focus, select, select:focus {
+    box-shadow: none !important;
+}

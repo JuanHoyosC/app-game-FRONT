@@ -14,7 +14,7 @@
 }
 
 .icono-clas.fa-trophy {
-    color: #F6D187;
+    color: #FFDC64;
 }
 
 .icono-clas.fa-medal {
@@ -23,4 +23,12 @@
 
 .icono-clas {
     font-size: 20px;
+}
+
+.clasi-img {
+    width: 125px;
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+    margin-bottom: 16px;
 }

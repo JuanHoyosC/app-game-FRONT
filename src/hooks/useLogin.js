@@ -1,9 +1,19 @@
-import { useState } from 'react'
-import { urlBase64ToUint8Array } from '../services/urlBase64ToUint8Array';
+import {
+    useState
+} from 'react'
+import {
+    urlBase64ToUint8Array
+} from '../services/urlBase64ToUint8Array';
 import jwt_decode from "jwt-decode"
-import { alertaWarning } from '../services/alertas';
-import { URL_BACKEND } from '../URL_BACKEND';
-import { types } from '../types/types';
+import {
+    alertaWarning
+} from '../services/alertas';
+import {
+    URL_BACKEND
+} from '../URL_BACKEND';
+import {
+    types
+} from '../types/types';
 
 
 const PUBLIC_APY_KEY = "BDjsBZpL71_3LP3aqWyWZjlXBnaVJ96NLSBkKzsAvNIQ52rHrdoJOmm3skil66D-3z4GHzKw_ZDBZFTT2FCbUoA";
@@ -23,7 +33,16 @@ export const useLogin = (form, dispatch) => {
             applicationServerKey: urlBase64ToUint8Array(PUBLIC_APY_KEY)
         })
 
-        await fetch(`${ URL_BACKEND }/loginsubscription`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({subscription, _id: id}) })
+        await fetch(`${URL_BACKEND}/loginsubscription`, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                subscription,
+                _id: id
+            })
+        })
     }
 
     const handleSubmit = async (e) => {
@@ -31,35 +50,45 @@ export const useLogin = (form, dispatch) => {
         setLoading(true);
 
 
-        const { correo, password } = form;
+        const {
+            correo,
+            password
+        } = form;
 
-        if(correo.length < 5){
+        if (correo.length < 5) {
             alertaWarning('El correo es invalido');
             return;
         }
 
-        if(password < 6){
+        if (password < 6) {
             alertaWarning('La contraseña es muy corta');
             return;
         }
 
-        const res = await fetch(`${ URL_BACKEND }/login`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(form) })
+        const res = await fetch(`${URL_BACKEND}/login`, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(form)
+        })
         const data = await res.json()
-        if(!data.continuar) alertaWarning(data.mensaje);
-        if (data.continuar) {
+        if (!data.continuar) { alertaWarning(data.mensaje); return; }
 
-            localStorage.setItem('appToken', data.token);
-            const decoded = jwt_decode(data.token);
-            const payload = decoded.token;
 
-            dispatch({ type: types.LOGIN, payload });
+        localStorage.setItem('appToken', data.token);
+        const decoded = jwt_decode(data.token);
+        const payload = decoded.token;
 
-            await subscribe(decoded.token._id);
-        }
+        dispatch({
+            type: types.LOGIN,
+            payload
+        });
 
+        await subscribe(decoded.token._id);
 
     }
 
-return [handleSubmit, loading];
+    return [handleSubmit, loading];
 
 }

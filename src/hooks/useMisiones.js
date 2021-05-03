@@ -1,8 +1,9 @@
-import { alertaError, alertaWarning } from '../services/alertas';
+import { alertaError, alertaVictory, alertaWarning } from '../services/alertas';
 import { types } from '../types/types';
 import { URL_BACKEND } from '../URL_BACKEND';
 import { saveAs } from 'file-saver';
 import { getPuntaje } from '../services/getPuntaje';
+import { numDificultad } from '../services/numDificultad';
 
 export const useMisiones = (usuario, id_tarea, dispatch) => {
 
@@ -38,7 +39,14 @@ export const useMisiones = (usuario, id_tarea, dispatch) => {
     const descargarArchivo = async (nombre_archivo) => {
         await fetch(`${URL_BACKEND}/task-download`, {method: 'POST', headers: {'content-type': 'application/json', 'access-token': token }, body: JSON.stringify({id_tarea}) })
             .then( res => res.blob())
-            .then(data => saveAs(data, nombre_archivo))
+            .then(data => saveAs(data, nombre_archivo ))
+            .catch(error => alertaError('Hubo un error'));
+    }
+
+    const descargarArchivoStudent = async (ruta, nombre_archivo) => {
+        await fetch(`${URL_BACKEND}/task-download-2`, {method: 'POST', headers: {'content-type': 'application/json', 'access-token': token }, body: JSON.stringify({path: ruta}) })
+            .then( res => res.blob())
+            .then(data => saveAs(data, nombre_archivo ))
             .catch(error => alertaError('Hubo un error'));
     }
 
@@ -63,6 +71,7 @@ export const useMisiones = (usuario, id_tarea, dispatch) => {
             estudiante,
             id_estudiante: usuario._id
         }
+
         dispatch({ type: types.TERMINAR_MISION, payload });
         await up( getPuntaje(puntaje) );
 
@@ -71,9 +80,10 @@ export const useMisiones = (usuario, id_tarea, dispatch) => {
     const up = async ( dificultad ) => {
         const res = await fetch(`${URL_BACKEND}/upattribute`, { method: 'POST', headers: { 'content-type': 'application/json', 'access-token': token }, body: JSON.stringify({ _id: usuario._id, dificultad }) })
         const data = await res.json();
-        if (!data.continuar) return;
+        if (!data.continuar) { alertaError(data.mensaje); return; }
 
         //Se encarga de actualizar los puntos del usuario en la vista
+        alertaVictory('Has cumplido una misión, sigue así!!', usuario.nivel, numDificultad(dificultad));
         dispatch({ type: types.RETURN_EQUAL_AUTH, payload: data.estudiante });
     }
 
@@ -87,5 +97,5 @@ export const useMisiones = (usuario, id_tarea, dispatch) => {
 
 
 
-    return [handleProceso, descargarArchivo, enviarArchivo]
+    return [handleProceso, descargarArchivo, descargarArchivoStudent, enviarArchivo]
 }

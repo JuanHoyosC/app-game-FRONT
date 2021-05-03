@@ -13,7 +13,6 @@ export const Factorizar1 = ({ formula, setResultados }) => {
 
     useEffect(() => {
 
-        console.log(formula, a, b, c)
 
         if (Number(a) === Number(formula[0])) setActive(a => ({ ...a, aActive: true }));
 

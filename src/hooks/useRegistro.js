@@ -6,7 +6,7 @@ export const useRegistro = (form, handleReset) => {
 
     const [loading, setLoading] = useState(false);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
 
@@ -16,6 +16,9 @@ export const useRegistro = (form, handleReset) => {
             setLoading(false);
             return ;
         }
+
+        const res = await subirFoto(form.foto);
+        form.foto = res.path_foto
         
         fetch(`${ URL_BACKEND }/register`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(form) })
             .then(res => res.json())
@@ -28,6 +31,15 @@ export const useRegistro = (form, handleReset) => {
                 setLoading(false);
                 alertaError('Hubo un error');
             })
+    }
+
+
+    const subirFoto = async (file) => {
+        let formData = new FormData();
+        formData.append('file', file);
+        const res = await fetch(`${URL_BACKEND}/upload-picture`, { method: 'POST', body: formData });
+        const data = await res.json()
+        return data;
     }
 
 

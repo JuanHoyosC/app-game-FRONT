@@ -97,13 +97,6 @@
 
 
 
-.btn-eliminar {
-    background: var(--color-red) !important;
-}
-
-.btn-done {
-    background: #21b655 !important;
-}
 
 .habito-fecha, .habito-dificultad {
     background: var(--color-primario) !important;

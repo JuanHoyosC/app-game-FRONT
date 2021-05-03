@@ -28,7 +28,7 @@ export const Juegos = () => {
     }
 
     return (
-        <div className="container">
+        <div className="container juego">
             { stage === 1 && <Stage1 setActive={ setActive }  /> }
             { stage === 2 && <Stage2 setActive={ setActive } /> }
             { stage === 3 && <Stage3 setActive={ setActive } /> }

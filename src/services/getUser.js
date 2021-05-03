@@ -17,5 +17,14 @@ export const getUser = async (dispatch) => {
 
     //retorna el usuario si existe, si no lo devulvel al login
     if (!data.continuar) { dispatch({ type: types.LOGOUT }); return; }
+
     dispatch({ type: types.LOGIN, payload: data.estudiante });
+}
+
+
+export const getPicture = async (foto) => {
+    const token = localStorage.getItem('appToken');
+    const res = await fetch(`${URL_BACKEND}/getPicture`, { method: 'POST', headers: { 'content-type': 'application/json', 'access-token': token }, body: JSON.stringify({ path: foto }) })
+    const data = await res.blob();
+    return URL.createObjectURL(data);
 }

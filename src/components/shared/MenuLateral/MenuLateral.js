@@ -30,7 +30,7 @@ export const MenuLateral = () => {
                     <AgregarCurso />
                     <BtnClasificatoria />
                 </div>
-                <Link to='/login' className="off btn" onClick={ hanledlogout } data-bs-dismiss="offcanvas" aria-label="Close"><i className="fas fa-power-off"></i></Link>
+                    <Link to='/login' className="off btn" onClick={ hanledlogout } data-bs-dismiss="offcanvas" aria-label="Close"><i className="fas fa-power-off"></i></Link>
                 </div>
         </div>
     )

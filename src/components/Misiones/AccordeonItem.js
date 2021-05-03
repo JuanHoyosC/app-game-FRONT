@@ -17,11 +17,12 @@ export const AccordeonItem = ({ titulo, descripcion, index, path, puntaje, fecha
     if (index === 3) classIcon = 'fa-dizzy';
 
     const usuario = useSelector(state => state.auth);
-    const file_upload = estudiantes.find(e => e._id === usuario._id);
+    const estudiante = estudiantes.find(e => e._id === usuario._id);
+    console.log(estudiante)
 
     const dispatch = useDispatch();
 
-    const [handleProceso, descargarArchivo, enviarArchivo] = useMisiones(usuario, id_tarea, dispatch);
+    const [handleProceso, descargarArchivo, descargarArchivoStudent, enviarArchivo] = useMisiones(usuario, id_tarea, dispatch);
 
     return (
         <div className="accordion-item">
@@ -57,8 +58,8 @@ export const AccordeonItem = ({ titulo, descripcion, index, path, puntaje, fecha
                         }
 
                         {
-                            file_upload?.path_tarea &&
-                            <button className="btn btn-descarga me-3 d-flex align-items-center text-white" onClick={() => { descargarArchivo(file).then() }}>
+                            estudiante?.path_tarea !== undefined && index === 2 &&
+                            <button className="btn btn-descarga  d-flex align-items-center text-white" onClick={() => { descargarArchivoStudent(estudiante.path_tarea, estudiante.nombre_archivo).then() }}>
                                 <i className="fas fa-download me-2"></i>
                                 Descargar archivo subido
                             </button>

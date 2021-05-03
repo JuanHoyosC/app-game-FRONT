@@ -10,6 +10,18 @@
     background: transparent !important;
 }
 
+.no-habit img {
+    display: block;
+    width: 250px;
+    margin: 0 auto;
+    margin-bottom: 16px;
+}
+
+.no-habit h2 {
+    color: #fff;
+    text-align: center;
+}
+
 
 @media screen and (max-width: 700px) and (min-width: 500px){
     .habitos {
@@ -27,5 +39,9 @@
 @media screen and (max-width: 500px) {
     .habitos {
         width: 100% !important;
+    }
+
+    .no-habit img { 
+        width: 150px;
     }
 }

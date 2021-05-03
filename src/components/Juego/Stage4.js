@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { trinomioCuadrado } from '../../services/trinomioCuadrado';
 import { Factorizar } from './Factorizar';
 import { Factorizar1 } from './Factorizar1';
+import { ModalStage4 } from './ModalStage4';
 import './stage4.css';
 
 export const Stage4 = ({ setActive }) => {
@@ -39,11 +40,8 @@ export const Stage4 = ({ setActive }) => {
 
     return (
         <div>
-            <div className="d-flex mb-5 justify-content-between">
-                <h5 className="text-white mb-0">
-                    En esta etapa debes factorizar
-                </h5>
-                <h5 className="text-white mb-0"><i className="fas fa-question-circle"></i></h5>
+            <div className="d-flex mb-5 justify-content-end">
+                <h4 className="text-white mb-0 cursor"  data-bs-toggle="modal" data-bs-target="#modalStage4"><i className="fas fa-question-circle"></i></h4>
             </div>
 
             <div className="row">
@@ -58,6 +56,8 @@ export const Stage4 = ({ setActive }) => {
                     {formulas1.map((formula, index) => <Factorizar1 formula={formula} setResultados={ setResultados } key={index} />)}
                 </div>
             </div>
+
+            <ModalStage4 />
         </div>
     )
 }

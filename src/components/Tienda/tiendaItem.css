@@ -1,4 +1,4 @@
-.item-body img{
+.item-body img {
     width: 50px;
     height: 50px;
 }
@@ -8,7 +8,7 @@
     padding: 16px 8px;
 }
 
-.item-tienda .card{
+.item-tienda .card {
     cursor: pointer;
     background-color: var(--bg-color);
 }
@@ -19,6 +19,11 @@
 }
 
 .item-footer {
-    color: #F6D187 !important;
+    color: #FFDC64 !important;
     font-weight: bold;
+}
+
+.item-tienda .swal2-styled.swal2-confirm {
+    background: #FFDC64 !important;
+    color: #555;
 }

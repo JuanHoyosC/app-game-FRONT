@@ -1,4 +1,5 @@
-import { alertaSure, alertaWait, alertaWarning } from "../services/alertas";
+import { alertaSure, alertaDefeat, alertaVictory, alertaWait, alertaWarning, alertaError } from "../services/alertas";
+import { numDificultad } from "../services/numDificultad";
 import { types } from '../types/types';
 import { URL_BACKEND } from "../URL_BACKEND";
 
@@ -56,7 +57,7 @@ export const useHabitos = (form = {}, id = '', dispatch, handleReset) => {
 
         const verificar = await verificarHabito(habito._id);
 
-        if (!verificar.continuar) {
+        if (!verificar.continuar) { 
             alertaWait(verificar.mensaje);
             return;
         }
@@ -64,8 +65,8 @@ export const useHabitos = (form = {}, id = '', dispatch, handleReset) => {
 
         const res = await fetch(`${URL_BACKEND}/upattribute`, { method: 'POST', headers: { 'content-type': 'application/json', 'access-token': token }, body: JSON.stringify({ _id: usuario._id, dificultad: habito.dificultad }) })
         const data = await res.json();
-        if (!data.continuar) return;
-
+        if (!data.continuar) { alertaError(data.mensaje); return;}
+        alertaVictory('Has cumplido un habito, sigue así!!', usuario.nivel, numDificultad(habito.dificultad));
         //Se encarga de actualizar los puntos del usuario en la vista
         dispatch({ type: types.RETURN_EQUAL_AUTH, payload: data.estudiante });
     }
@@ -80,8 +81,8 @@ export const useHabitos = (form = {}, id = '', dispatch, handleReset) => {
 
         const res = await fetch(`${URL_BACKEND}/downattribute`, { method: 'POST', headers: { 'content-type': 'application/json', 'access-token': token }, body: JSON.stringify({ _id: usuario._id, dificultad: habito.dificultad }) })
         const data = await res.json();
-        if (!data.continuar) return;
-
+        if (!data.continuar) { alertaError(data.mensaje); return;}
+        alertaDefeat('No has cumplido el habito, la proxima vez sabemos que puedes lograrlo!!', usuario.nivel, numDificultad(habito.dificultad));
         //Se encarga de actualizar los puntos del usuario en la vista
         dispatch({ type: types.RETURN_EQUAL_AUTH, payload: data.estudiante });
     }

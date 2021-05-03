@@ -1,8 +1,9 @@
 import moment from 'moment';
 import { types } from '../types/types';
 import { URL_BACKEND } from '../URL_BACKEND';
-import { alertas } from './alertas';
+import { alertaDefeat, alertaError, alertaWarning } from './alertas';
 import { getPuntaje } from './getPuntaje';
+import { numDificultad } from './numDificultad';
 
 
 export const separarMisiones = (misiones = [], usuario, dispatch) => {
@@ -17,7 +18,8 @@ export const separarMisiones = (misiones = [], usuario, dispatch) => {
         if (!findS) {
             if (moment().isAfter(mision.fecha_fin) && !moment(new Date()).isSame(mision.fecha_fin, 'day', 'month') ) {
                 tipoMisiones[3].misiones.push(mision);
-               await down(usuario, mision, getPuntaje( mision.puntaje ), dispatch);
+                await down(usuario, mision, getPuntaje( mision.puntaje ), dispatch);
+               
                 
             }
 
@@ -59,11 +61,13 @@ const down = async (usuario, mision, dificultad, dispatch) => {
 
     const res = await fetch(`${URL_BACKEND}/upload-task-student-finish`, { method: 'POST', headers: { 'content-type': 'application/json', 'access-token': token }, body: JSON.stringify({ estudiante, id_tarea: mision._id }) })
     const data = await res.json();
-    if (!data.continuar) { alertas(data.mensaje); return; };
+    if (!data.continuar) { alertaWarning(data.mensaje); return; };
 
     const res1 = await fetch(`${URL_BACKEND}/downattribute`, { method: 'POST', headers: { 'content-type': 'application/json', 'access-token': token }, body: JSON.stringify({_id: usuario._id, dificultad}) })
     const data1 = await res1.json();
-    if (!data1.continuar) return;
+    if (!data1.continuar) { alertaError('Hubo un error'); return; }
+
+    alertaDefeat('No has cumplido la misión, la proxima vez sabemos que puedes lograrlo!!', usuario.nivel, numDificultad(dificultad));
 
     //Se encarga de actualizar los puntos del usuario en la vista
     dispatch({ type: types.RETURN_EQUAL_AUTH, payload: data1.estudiante });

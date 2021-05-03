@@ -1,5 +1,6 @@
 import React, { useEffect, useLayoutEffect, useState } from 'react'
 import { trinomioCuadrado } from '../../services/trinomioCuadrado';
+import { ModalStage1 } from './ModalStage1';
 import { Sortable } from './Sortable';
 
 
@@ -40,9 +41,8 @@ export const Stage1 = ({ setActive }) => {
 
     return (
         <div className="stage1">
-            <div className="d-flex flex-wrap justify-content-between align-items-center mb-5">
-                <h5 className="text-white mb-0">Coloca las fichas en su cuadro correspondiente</h5>
-                <h5 className="text-white mb-0"><i className="fas fa-question-circle"></i></h5>
+            <div className="d-flex flex-wrap justify-content-end align-items-center mb-5">
+                <h4 className="text-white mb-0 cursor" data-bs-toggle="modal" data-bs-target="#modalStage1"><i className="fas fa-question-circle"></i></h4>
             </div>
 
             <div className="fichas d-flex mb-3">
@@ -73,6 +73,8 @@ export const Stage1 = ({ setActive }) => {
                     </div>
                 </div>
             </div>
+
+            <ModalStage1 />
         </div>
     )
 }

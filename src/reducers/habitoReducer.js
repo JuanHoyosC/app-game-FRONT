@@ -25,7 +25,9 @@ export const habitoReducer = (state = [], action) => {
         
         //Filtra todos los habitos que sean para el momento
         case types.ORDENAR_HOY_HABITO: 
-            return state.filter(habito => moment(habito.proxima_fecha).isSame(moment(), 'day'));
+            const newState = state.filter(habito => moment(habito.proxima_fecha).isSame(moment(), 'day'))
+            if(newState.length === 0) alertas('No tienes habitos para hoy');
+            return newState.length === 0 ? state : newState;
 
         //Ordena de fechas más proximas a más lejanas    
         case types.ORDENAR_FECHA_HABITO: 

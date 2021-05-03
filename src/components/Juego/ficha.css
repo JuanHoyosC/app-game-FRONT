@@ -26,7 +26,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--bg-color);
+    background-color: var(--color-secundario);
     cursor: move;
 }
 
@@ -45,5 +45,5 @@
 
 .container-result .cuadrado, .container-result .cuadrito, .container-result .rectangulo, .container-result .rectangulo-reverse {
     margin: 0 !important;
-    border: 1px solid var(--color-secundario);
+    border: 1px solid var(--bg-color);
 }

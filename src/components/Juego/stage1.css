@@ -3,16 +3,20 @@
 }
 
 .stage1 .fichas {
-    flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap !important;
     padding: 10px;
+    background-color: var(--bg-color);
+    min-width: 100%;
 }
 
-.sortable, .stage1 .fichas  {
+.sortable  {
     display: flex;
     flex-wrap: wrap;
     overflow-y: hidden;
     min-height: 200px;   
-    border: 1px dashed var(--color-secundario);
+    min-width: 100%;
+    background-color: var(--bg-color);
 }
 
 .fichas .sortable {

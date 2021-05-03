@@ -3,7 +3,6 @@
 }
 
 .fichas {
-    border: 1px dotted var(--color-secundario);
     display: flex;
     flex-wrap: wrap;
     min-height: 100px;
@@ -12,8 +11,8 @@
 .container-result {
     display: flex;
     flex-wrap: wrap;
-    border: 1px dotted var(--color-secundario);
     overflow: hidden;
+    background-color: var(--bg-color);
 }
 
 .input {
@@ -34,3 +33,10 @@
     color: #fff !important;
 }
 
+
+.stage2 .activeInput {
+    width: 25px !important;
+    margin: 0;
+    padding: 0;
+    background-color: transparent !important;
+}

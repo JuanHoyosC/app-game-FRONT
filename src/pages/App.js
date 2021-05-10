@@ -23,7 +23,7 @@ export const App = () => {
             <div className="bg-home">
                 <div>
                     <NavBar />
-                    <div className="container-fluid mt-4">
+                    <div className="container-fluid mt-4 home">
                         <Switch>
                             <Route exact path="/misiones" component={Misiones} />
                             <Route exact path="/tienda" component={Tienda} />

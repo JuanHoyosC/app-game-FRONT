@@ -22,10 +22,20 @@ export const Footer = () => {
                     </NavLink>
                 </li>
 
+                
+
                 <li className="nav-item">
                     <NavLink activeClassName="active" exact className="nav-link d-flex flex-column align-items-center" to="/misiones">
                         <i className="fas fa-thumbtack"></i>
                         <small>Misiones</small>    
+                    </NavLink>
+                </li>
+
+
+                <li className="nav-item">
+                    <NavLink activeClassName="active" exact className="nav-link d-flex flex-column align-items-center" to="/juego">
+                        <i className="fas fa-gamepad fa-2x mb-2"></i>
+                        <small>Juegos</small>
                     </NavLink>
                 </li>
 

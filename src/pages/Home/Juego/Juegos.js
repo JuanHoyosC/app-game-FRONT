@@ -5,6 +5,7 @@ import { Stage2 } from '../../../components/Juego/Stage2'
 import { Stage3 } from '../../../components/Juego/Stage3'
 import { Stage4 } from '../../../components/Juego/Stage4';
 import { Stage5 } from '../../../components/Juego/Stage5';
+import { Perfil } from '../../../components/Perfil/Perfil';
 import { upAtributo } from '../../../services/upAtributo';
 
 import './juego.css';
@@ -29,6 +30,7 @@ export const Juegos = () => {
 
     return (
         <div className="container juego">
+            <Perfil />
             { stage === 1 && <Stage1 setActive={ setActive }  /> }
             { stage === 2 && <Stage2 setActive={ setActive } /> }
             { stage === 3 && <Stage3 setActive={ setActive } /> }

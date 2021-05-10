@@ -9,8 +9,8 @@ export const Registro = () => {
 
     const [form, hanleInputChange, handleReset] = useForm({ correo: '', username: '', password: '', repetirPass: '', nombre: '', apellidos: '', foto: '' });
     const { correo, username, password, repetirPass, nombre, apellidos } = form;
-    const [handleSubmit, loading] = useRegistro(form , handleReset);
-   
+    const [handleSubmit, loading] = useRegistro(form, handleReset);
+
     const handleUpload = (e) => {
         const file = e.target.files[0];
         if (!file) return;
@@ -23,10 +23,27 @@ export const Registro = () => {
             <form className="form-registro p-5 px-3" autoComplete="off" onSubmit={handleSubmit}>
                 <h5 className="text-ingresar mb-3 text-white text-center">Registrarse</h5>
 
-                <label for="imagen-perfil" className="label-imagen mx-auto mb-3">
-                    <input type="file" name="myImage" accept="image/x-png,image/gif,image/jpeg" onChange={handleUpload} id="imagen-perfil" />
-                    <img src="https://media.cdnandroid.com/item_images/1110631/imagen-gaming-logo-design-ideas-cool-logo-maker-0thumb.jpeg" alt="imagen_perfil" id="img-perfil" />
-                </label>
+                <div className="row">
+                    <div className="col-md-3">
+                        <label for="imagen-perfil" className="label-imagen mx-auto mb-3">
+                            <input type="file" name="myImage" accept="image/x-png,image/gif,image/jpeg" onChange={handleUpload} id="imagen-perfil" />
+                            <img src="https://i.ibb.co/H22pNB4/gamer-1.png" alt="imagen_perfil" id="img-perfil" />
+                        </label>
+                        <small className="text-white text-center d-block mb-3">Foto de perfil</small>
+                    </div>
+                    <div className="col-md-9">
+                        <div className="form-floating mb-3">
+                            <input type="text" className="form-control" value={nombre} name="nombre"
+                                id="nombre" placeholder="name@example.com" onChange={hanleInputChange} />
+                            <label htmlFor="nombre"><i className="fas fa-signature me-2"></i>Nombre</label>
+                        </div>
+                        <div className="form-floating mb-3">
+                            <input type="text" className="form-control" value={apellidos} name="apellidos"
+                                id="apellidos" placeholder="name@example.com" onChange={hanleInputChange} />
+                            <label htmlFor="apellidos"><i className="fas fa-signature me-2"></i>Apellidos</label>
+                        </div>
+                    </div>
+                </div>
 
                 <div className="form-floating mb-3">
                     <input type="email" className="form-control" value={correo} name="correo"
@@ -34,18 +51,6 @@ export const Registro = () => {
                     <label htmlFor="correo"><i className="fas fa-envelope me-2"></i> Correo electronico</label>
                 </div>
 
-                <div className="d-flex">
-                    <div className="form-floating mb-3">
-                        <input type="text" className="form-control" value={nombre} name="nombre"
-                            id="nombre" placeholder="name@example.com" onChange={hanleInputChange} />
-                        <label htmlFor="nombre"><i className="fas fa-signature me-2"></i>Nombre</label>
-                    </div>
-                    <div className="form-floating mb-3 ms-2">
-                        <input type="text" className="form-control" value={apellidos} name="apellidos"
-                            id="apellidos" placeholder="name@example.com" onChange={hanleInputChange} />
-                        <label htmlFor="apellidos"><i className="fas fa-signature me-2"></i>Apellidos</label>
-                    </div>
-                </div>
 
                 <div className="form-floating mb-3">
                     <input type="text" className="form-control" value={username} name="username"
@@ -53,17 +58,21 @@ export const Registro = () => {
                     <label htmlFor="usuario"><i className="fas fa-gamepad me-2"></i>Usuario</label>
                 </div>
 
-                <div class="d-flex">
-                    <div className="form-floating mb-3">
-                        <input type="password" className="form-control" value={password} name="password"
-                            id="password" placeholder="Password" onChange={hanleInputChange} />
-                        <label htmlFor="password"> <i className="fas me-2 fa-lock"></i>Contraseña</label>
-                    </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div className="form-floating mb-3">
+                            <input type="password" className="form-control" value={password} name="password"
+                                id="password" placeholder="Password" onChange={hanleInputChange} />
+                            <label htmlFor="password"> <i className="fas me-2 fa-lock"></i>Contraseña</label>
+                        </div>
 
-                    <div className="form-floating mb-3 ms-2">
-                        <input type="password" className="form-control" value={repetirPass} name="repetirPass"
-                            id="repetirPass" placeholder="Password" onChange={hanleInputChange} />
-                        <label htmlFor="repetirPass"> <i className="fas me-2 fa-lock"></i>Repetir Contraseña</label>
+                    </div>
+                    <div class="col-md-6">
+                        <div className="form-floating mb-3">
+                            <input type="password" className="form-control" value={repetirPass} name="repetirPass"
+                                id="repetirPass" placeholder="Password" onChange={hanleInputChange} />
+                            <label htmlFor="repetirPass"> <i className="fas me-2 fa-lock"></i>Repetir Contraseña</label>
+                        </div>
                     </div>
                 </div>
 

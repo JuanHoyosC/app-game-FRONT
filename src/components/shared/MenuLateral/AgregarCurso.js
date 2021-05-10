@@ -30,7 +30,7 @@ export const AgregarCurso = () => {
         <>
             { cursos.length === 0 ?
 
-                <p>No hay cursos registrados</p>
+                <p className="text-white">No hay cursos registrados</p>
                 :
 
                 <form>

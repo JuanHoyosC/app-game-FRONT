@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { alertaWarning, alertaError } from '../services/alertas';
+import { alertaWarning, alertaError, alertaRegistro } from '../services/alertas';
 import { URL_BACKEND } from '../URL_BACKEND';
 
 export const useRegistro = (form, handleReset) => {
@@ -25,6 +25,7 @@ export const useRegistro = (form, handleReset) => {
             .then(data => {
                 setLoading(false);
                 if(!data.continuar){ alertaWarning(data.mensaje); return ;}
+                alertaRegistro('Usuario registrado exitosamente');
                 handleReset();
             })
             .catch(() => { 

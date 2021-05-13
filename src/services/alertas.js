@@ -58,6 +58,21 @@ export const alertaBuy= (mensaje) => {
     })
 }
 
+export const alertaRegistro = (mensaje) => {
+    Swal.fire({
+        imageUrl: 'https://i.ibb.co/wJD2j1Z/register.png',
+        imageHeight: 100,
+        imageWidth: 100,
+        text: mensaje,
+        padding: '1em',
+        timerProgressBar: true,
+        showConfirmButton: false,
+        timer: 4000,
+        background: '#4a4e52',
+        backdrop: `rgba(0,0,0,0.1)`
+    })
+}
+
 export const alertaSaldo= (mensaje) => {
     Swal.fire({
         imageUrl: 'https://i.ibb.co/P6W1WmG/safebox.png',

@@ -1,25 +1,19 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Estado } from './Estado';
 import './perfil.css';
 import '../../assets/experiencia-icon.png'
 import { useSelector } from 'react-redux';
-import { getPicture } from '../../services/getUser';
 
 
 export const Perfil = () => {
     
     const usuario = useSelector(state => state.auth);
-    const [picture, setPicture] = useState('');
-
-    useEffect(() => {
-        getPicture(usuario.foto).then(url => setPicture(url));
-    }, [usuario])
 
     return (
         <div className="perfil-estado mb-5">
             <div className="row mx-0">
                 <div className="col-3 ps-0 imagen-perfil">
-                    <img src={ picture } width="100%" alt="imagen" />
+                    <img src={ usuario.foto } width="100%" alt="imagen" />
                 </div>
 
                 <div className="col-9 pe-0">

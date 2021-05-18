@@ -3,7 +3,7 @@ import { numDificultad } from "../services/numDificultad";
 import { types } from '../types/types';
 import { URL_BACKEND } from "../URL_BACKEND";
 
-export const useHabitos = (form = {}, id = '', dispatch, handleReset) => {
+export const useHabitos = (form = {}, id = '', dispatch, handleReset, _idHabito) => {
 
     const token = localStorage.getItem('appToken');
 
@@ -35,6 +35,39 @@ export const useHabitos = (form = {}, id = '', dispatch, handleReset) => {
         //Actualiza los habitos en la vista
         handleReset();
         dispatch({ type: types.ADD_HABITO, payload: data.habito });
+    }
+
+    const handleEdit = async (e) => {
+        
+        e.preventDefault();
+        e.stopPropagation();
+
+        const { titulo, descripcion }  = form
+
+        if(titulo.length < 3){
+            alertaWarning('Ingresa un titulo más largo');
+            return ;
+        }
+
+        if(descripcion.length < 5){
+            alertaWarning('Ingresa una descripción más larga');
+            return ;
+        }
+
+        //Envia el habito al backend
+        const res = await fetch(`${URL_BACKEND}/edithabit`, { method: 'POST', headers: { 'content-type': 'application/json', 'access-token': token }, body: JSON.stringify({ ...form, _id: _idHabito }) })
+        const data = await res.json();
+
+        //Recibe el resultado de data del backend
+        if (!data.continuar) { alertaWarning(data.mensaje); return; };
+
+        //Actualiza los habitos en la vista
+        const payload = {
+            _id: _idHabito,
+            data: data.habito
+        }
+
+        dispatch({ type: types.UPDATE_HABITO, payload });
     }
 
     //Elimina el habito enviando el id
@@ -94,5 +127,5 @@ export const useHabitos = (form = {}, id = '', dispatch, handleReset) => {
         return data;
     }
 
-    return { handleSubmit, handleDelete, handleSuccess, handleDown }
+    return { handleSubmit, handleDelete, handleEdit, handleSuccess, handleDown }
 }

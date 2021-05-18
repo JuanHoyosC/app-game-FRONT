@@ -33,6 +33,8 @@ export const habitoReducer = (state = [], action) => {
         case types.ORDENAR_FECHA_HABITO: 
             return [...state.sort((a,b) => new Date(a.proxima_fecha) - new Date(b.proxima_fecha))];
 
+        case types.UPDATE_HABITO: 
+            return state.map((a) => a._id === action.payload._id ? action.payload.data : a)
         //Retorna el array que se envie
         case types.RETURN_HABITO:
             return action.payload;

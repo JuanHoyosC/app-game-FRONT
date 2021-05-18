@@ -25,20 +25,20 @@
     color: #fff;
 }
 
-.form-habito textarea {
+.form-habito textarea, .form-habito-editar textarea {
     height: 150px;
     overflow-y: auto;
 }
 
-.form-habito .col-3 {
+.form-habito .col-3, .form-habito-editar .col-3 {
     padding: 4px;
 }
 
-.form-habito .active {
+.form-habito .active, .form-habito-editar .active {
     background: var(--color-secundario);
 }
 
-.form-habito .active-text {
+.form-habito .active-text, .form-habito-editar .active-text {
     color: var(--color-secundario) !important;
 }
 
@@ -50,12 +50,12 @@
     padding-right: 0;
 }
 
-.form-habito small {
+.form-habito small, .form-habito-editar small {
     margin-top: 4px;
 }
 
 
-.form-habito .btn-crear {
+.form-habito .btn-crear, .form-habito-editar .bnt-crear {
         background: var(--color-secundario);
         padding: 2px 10px !important;
 }

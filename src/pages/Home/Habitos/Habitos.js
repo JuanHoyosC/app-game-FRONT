@@ -32,8 +32,8 @@ export const Habitos = () => {
                 </div>
                 :
                 <div className="accordion accordion-flush" id="accordionFlushExample">
-                    {habitos.map((habito) =>
-                        <Habito habito={habito} key={habito._id} />)}
+                    {habitos.map((habito, index) =>
+                        <Habito habito={habito} index={index} key={habito._id} />)}
                 </div>
             }
         </div>

@@ -4,10 +4,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import moment from 'moment';
 import 'moment/locale/es';
 import './habito.css';
+import { ModalEditar } from './ModalEditar';
 
 
 
-export const Habito = ({ habito }) => {
+export const Habito = ({ habito, index }) => {
 
     const { titulo, descripcion, proxima_fecha, dificultad, _id } = habito;
     //Obtiene los datos del usuario
@@ -37,11 +38,12 @@ export const Habito = ({ habito }) => {
                         <span>{descripcion}</span>
                     </div>
                     <div className="d-flex header-btn justify-content-between">
-                        <button className="btn btn-done"><i className="fas fa-edit"></i></button>
+                        <button className="btn btn-done"  data-bs-toggle="modal" data-bs-target={`#modalEditarHabito${index}`}><i className="fas fa-edit"></i></button>
                         <button className="btn btn-eliminar" onClick={handleDelete}><i className="fas fa-trash"></i></button>
                     </div>
                 </div>
             </div>
+            <ModalEditar index={index} />
         </div>
     )
 }

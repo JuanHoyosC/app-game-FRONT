@@ -22,7 +22,7 @@ export const AgregarCurso = () => {
 
     const handleSubimit = (e) => {
         e.preventDefault();
-
+console.log(codigo)
         addClass(usuario._id, codigo, dispatch).then()
     }
 
@@ -34,7 +34,8 @@ export const AgregarCurso = () => {
                 :
 
                 <form>
-                    <select className="form-select select-curso" defaultValue={usuario.id_clase} onChange={handleChange}>
+                    <select className="form-select select-curso" defaultValue={usuario.id_clase  || ""} onChange={handleChange}>
+                        <option value="">Salas</option>
                         {cursos.map((curso, i) => <option key={i} value={curso._id}>
                             {curso.nombre_clase}</option>)}
                     </select>

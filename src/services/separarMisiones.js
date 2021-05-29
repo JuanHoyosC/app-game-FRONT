@@ -13,14 +13,14 @@ export const separarMisiones = (misiones = [], usuario, dispatch) => {
     { titulo: 'Misiones no terminadas', misiones: [] }];
 
     misiones.forEach(async (mision) => {
-        const findS = mision.estudiantes.some(estudiante => estudiante._id === usuario._id);
+        const findS = mision.estudiantes.some(estudiante => estudiante._id === usuario._id && estudiante.nombre === usuario.nombre && usuario.apellidos === estudiante.apellidos);
+
+
 
         if (!findS) {
             if (moment().isAfter(mision.fecha_fin) && !moment(new Date()).isSame(mision.fecha_fin, 'day', 'month') ) {
                 tipoMisiones[3].misiones.push(mision);
                 await down(usuario, mision, getPuntaje( mision.puntaje ), dispatch);
-               
-                
             }
 
             tipoMisiones[0].misiones.push(mision);
@@ -28,16 +28,22 @@ export const separarMisiones = (misiones = [], usuario, dispatch) => {
 
         if (findS) {
             //Busca si el estudiante ya esta subscrito y en que proceso esta para separarlo
-            const estudiante = mision.estudiantes.find(estudiante => estudiante._id = usuario._id);
-
+            const estudiante = mision.estudiantes.find(estudiante => estudiante._id = usuario._id && estudiante.nombre === usuario.nombre && usuario.apellidos === estudiante.apellidos);
+            
             if (estudiante.progreso === 'proceso') {
-                tipoMisiones[1].misiones.push(mision);
-
+                if (moment().isAfter(mision.fecha_fin) && !moment(new Date()).isSame(mision.fecha_fin, 'day', 'month') ) {
+                    tipoMisiones[3].misiones.push(mision);
+                    await down(usuario, mision, getPuntaje( mision.puntaje ), dispatch);
+                }else{ 
+                    tipoMisiones[1].misiones.push(mision);
+                }
             }
 
 
             if (estudiante.progreso === 'terminada') {
+       
                 tipoMisiones[2].misiones.push(mision);
+                
             }
 
             if (estudiante.progreso === 'No terminada') {

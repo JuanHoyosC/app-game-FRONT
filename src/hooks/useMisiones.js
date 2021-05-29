@@ -51,6 +51,7 @@ export const useMisiones = (usuario, id_tarea, dispatch) => {
     }
 
     const enviarArchivo = async (file, puntaje) => {
+        console.log('df', id_tarea)
         let estudiante = getUsuario();
         if (file?.name) {
             const resto = await subirArchivo(file);

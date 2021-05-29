@@ -18,7 +18,7 @@ export const AccordeonItem = ({ titulo, descripcion, index, path, puntaje, fecha
 
     const usuario = useSelector(state => state.auth);
     const estudiante = estudiantes.find(e => e._id === usuario._id);
-    console.log(estudiante)
+    
 
     const dispatch = useDispatch();
 
